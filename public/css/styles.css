@@ -1,0 +1,460 @@
+@font-face {
+  font-family: "Banny Bold Round";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Banny Bold Round"), url("../Banny-BoldRound.woff");
+}
+body {
+  width: 100px;
+}
+.logo {
+  margin-left: 40px;
+}
+.main-menu {
+  margin-top: 20px;
+  position: absolute;
+  width: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.left-main-menu-list,
+.right-main-menu-list {
+  list-style-type: none;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.right-main-menu-list {
+  margin-left: 0px;
+}
+
+a {
+  font-family: "Open Sans", sans-serif;
+  color: #ffd600;
+  text-decoration: none;
+}
+a.black {
+  color: black;
+}
+a:hover {
+  font-weight: bolder;
+  color: gray;
+  transition: 0.5s;
+}
+.left-main-menu--item,
+.right-main-menu--item {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+.left-main-menu-list {
+  margin-left: -40px;
+}
+
+.main-page {
+  z-index: -10;
+  overflow: hidden;
+  margin: -10px 0;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: url("../img/ad8dc293645eb043ad328652e84f9f87.jpeg") center
+    no-repeat;
+  background-size: cover;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.6);
+}
+.restaurant-text {
+  margin-left: 45%;
+  margin-top: 40vh;
+  font-family: "Open Sans", sans-serif;
+  color: white;
+}
+.restaurant-name {
+  margin-left: 20vw;
+  font-family: "Banny Bold Round";
+  font-size: 96px;
+  color: white;
+}
+.buttons__wrapper {
+  margin-left: -20px;
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+.button-book {
+  background-color: #ffd600;
+  border: none;
+  border-radius: 5px;
+  color: black;
+  width: 200px;
+  height: 60px;
+  font-weight: bold;
+  margin-right: 30px;
+}
+.button-explore {
+  background-color: transparent;
+  border: 0.5px white solid;
+  border-radius: 5px;
+  color: white;
+  width: 200px;
+  height: 60px;
+  font-weight: bold;
+  opacity: 1;
+}
+.main-button:hover {
+  width: 210px;
+  height: 70px;
+  transition: 0.2s;
+}
+.socials {
+  position: absolute;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-self: flex-end;
+  margin-top: 40vh;
+  margin-left: 10vw;
+}
+.fb,
+.twitter,
+.insta {
+  width: 40px;
+  height: 40px;
+  margin: 10px;
+}
+.fb {
+  background: url("../socials/Facebook.png") center;
+  background-size: cover;
+  z-index: 1000;
+}
+.insta {
+  background: url("../socials/INST.png") center;
+  background-size: cover;
+  z-index: 1000;
+}
+.twitter {
+  background: url("../socials/Twitter.png") center;
+  background-size: cover;
+  z-index: 1000;
+}
+
+.about-page {
+  display: flex;
+  width: 100vw;
+  overflow: hidden;
+  margin: -10px -10px;
+}
+.about-text {
+  display: flex;
+  flex-direction: column;
+  margin-top: 200px;
+  align-items: center;
+  width: 600px;
+}
+.about-text-main,
+.about-text-i {
+  font-family: "Open Sans", sans-serif;
+  margin-left: 20px;
+  text-align: center;
+}
+.about-text-i {
+  font-weight: bold;
+  font-size: 1.3em;
+}
+.about-us {
+  font-family: "Banny Bold Round";
+}
+.about__wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+.about-img {
+  width: 375px;
+  height: 375px;
+  box-shadow: 0 0 50px 20px lightgrey;
+  margin-top: 200px;
+  margin-bottom: 50px;
+  margin-left: 150px;
+}
+.about-img-square {
+  margin-top: 160px;
+  margin-left: -230px;
+}
+.team-page {
+  z-index: -10;
+  overflow: hidden;
+  margin: -10px 0;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: url("../img/team-bg.jpeg") center no-repeat;
+  background-size: cover;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.6);
+}
+.team__wrapper{
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.team-h {
+  margin-left:-10px;
+  margin-top: 160px;
+  position: absolute;
+  display: flex;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.8em;
+  letter-spacing: 7px;
+  width: 100%;
+  justify-content: center;
+}
+.team-title {
+  color: white;
+  font-family: "Banny Bold Round";
+  font-size: 3em;
+}
+.team-text--b {
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+.team-text--s {
+  color: white;
+  font-family: "Open Sans", sans-serif;
+}
+.team-img {
+  z-index: 0;
+  width: 375px;
+  height: 375px;
+  box-shadow: 0 0 50px 20px black;
+  margin-top: 200px;
+  margin-bottom: 50px;
+  margin-left: 150px;
+}
+.team-img-square{
+  z-index: 100;
+  margin-left: -600px;
+  margin-top:160px
+}
+.team-left{
+  margin-left: -100px;
+  display: flex;
+  width: 400px;
+}
+.team-right{
+  margin-top: 100px;
+  
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  justify-content: center;
+  align-items: center;
+}
+.team-title,
+.team-text--b,
+.team-text--s{
+  text-align: center;
+
+}
+.book-elem__wrapper{
+  
+  display:flex;
+  flex-direction: row;
+}
+.book-left{
+  margin-top: 100px;
+  margin-left: -20px;
+  width: 700px;
+  
+}
+.booking{ 
+  width: 700px;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.book-fieldset{
+  
+  border: none;
+
+  justify-content: center;
+
+  width: 600px;
+flex-direction: row;
+
+}
+.name,
+.email,
+.phone,
+.select-table,
+.option,
+.date,
+.time{
+  font-family: "Open Sans", sans-serif;
+background-color: lightgray;
+outline: none;
+border: none;
+width: 270px;
+height: 60px;
+border-radius: 5px;
+margin-bottom: 10px;
+margin-left: 10px;
+text-align: start;
+padding-left: 20px;
+}
+.book-button{
+  width:550px;
+  align-self: center;
+  margin-left: -25px;
+  outline: none;
+  border: none;
+  background-color: #ffd600;
+  border-radius: 5px;
+  height: 60px;
+  font-family: "Open Sans", sans-serif;
+  color: white;
+  font-size: large;
+  font-weight: bold;
+
+}
+.book-button:hover{
+  width: 600;
+  transition: 0.3s;
+}
+.book-title{
+  font-family: "Banny Bold Round";
+  font-size: 3em;
+  margin-left: -10px;
+}
+.book-right{
+  display: flex;
+}
+.book-img{
+  width: 375px;
+  height: 375px;
+  box-shadow: 0 0 50px 20px lightgrey;
+  margin-top: 180px;
+  margin-bottom: 50px;
+  margin-left: 50px;
+}
+.book-square{
+  position: absolute;
+margin-left: 200px;
+margin-top: 145px;
+
+}
+.menu__wrapper{
+  background: url('../img/menu-bg.jpeg') no-repeat center;
+  background-size: cover;
+  background-attachment: fixed;
+  margin: -10px;
+  padding: 0px;
+  width: 99vw;
+  height: 300vh;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.6);
+}
+.menu--text{
+  color: white;
+  font-family: "Banny Bold Round";
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 200px;
+  justify-content: center;
+}
+.full-menu__wrapper{
+
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  width: 100%;
+  align-items: center;
+
+}
+.meal-item{
+  margin: 50px 20px;
+  list-style: none;
+}
+.meal-type{
+  
+  display: flex;
+  justify-content: space-around;
+
+}
+.menu-item p{
+  color: white;
+}
+.menu-item-column__wrapper{
+  display: flex;
+width: 100%;
+justify-content: center;
+flex-wrap: wrap;
+}
+.menu-item{
+  font-family: "Banny Bold Round";
+  display: flex;
+  width: 300px;
+  flex-wrap: wrap;
+}
+.menu-column{
+  margin-left: 50px;
+margin-right: 50px;
+}
+.menu-item--description{
+  font-size: small;
+  color:lightsteelblue !important;
+  margin-top: -20px;
+}
+.meal-item--link.active{
+  color: rgb(55, 175, 0);
+}
+.specialties-wrapper{
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.specialties-title{color: white;
+  font-family: "Banny Bold Round";
+}
+.spec-img{
+  z-index: 0;
+  width: 375px;
+  height: 375px;
+  box-shadow: 0 0 50px 20px black;
+
+  margin-bottom: 50px;
+  margin-left: 150px;
+}
+.spec--container {
+  display: flex;
+justify-content: space-around;
+margin-top: 100px;
+}
+.spec-left{
+  display: flex;
+  margin-right: 300px;
+}
+.spec-right{
+  width: 500px;
+}
+
+.spec-img-square {
+  z-index: 1;
+  margin-left: -600px;
+  margin-top:-40px
+}
