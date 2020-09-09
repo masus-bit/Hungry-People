@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Header = styled.header`
   margin-top: 20px;
   position: absolute;
-  width: 100px;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -38,7 +38,7 @@ const MenuLink = styled(Link)`
   color: #ffd600;
   text-decoration: none;
   :hover {
-    font-weight: bolder;
+    
     color: gray;
     transition: 0.5s;
     cursor: pointer;

@@ -88,7 +88,7 @@ export const Specialities=()=>{
                       height="250"
                       rx="5"
                       stroke="#E8C300"
-                      stroke-width="40"
+                      strokeWidth="40"
                       mask="url(#path-1-inside-1)"
                     />
                   </g>
@@ -100,7 +100,7 @@ export const Specialities=()=>{
                       width="450"
                       height="450"
                       filterUnits="userSpaceOnUse"
-                      color-interpolation-filters="sRGB"
+                      colorInterpolationFilters="sRGB"
                     >
                       <feFlood flood-opacity="0" result="BackgroundImageFix" />
                       <feColorMatrix

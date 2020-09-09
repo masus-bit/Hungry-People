@@ -5,6 +5,7 @@ import {BrowserRouter} from 'react-router-dom'
 import { Provider } from "react-redux";
 import createApi from './components/api/api.js'
 import {reducer} from '../src/components/reducers/reducer.js'
+import {Operations} from './components/reducers/operations.js'
 import thunk from "redux-thunk";
 import { createStore, applyMiddleware } from "redux";
 import { compose } from "recompose";
@@ -15,7 +16,7 @@ export const store=createStore(reducer,
     window.__REDUX_DEVTOOLS_EXTENSION__
       ? window.__REDUX_DEVTOOLS_EXTENSION__()
       : (f) => f))
-
+store.dispatch(Operations.loadData())
 const init = ()=>{
     ReactDOM.render(
         <Provider store={store}>

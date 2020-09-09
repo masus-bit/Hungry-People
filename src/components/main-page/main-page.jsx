@@ -9,15 +9,15 @@ const MainPageStyled = styled.main`
   flex-direction: column;
   position: absolute;
   left: 0;
-  width: 100%;
-  height: 100vh;
+  width:100%;
+  height: 99vh;
   background: url("../img/ad8dc293645eb043ad328652e84f9f87.jpeg") center
     no-repeat;
   background-size: cover;
   box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.6);
 `;
 const Title = styled.p`
-  margin-left: 45%;
+width:100%;
   margin-top: 40vh;
   font-family: "Open Sans", sans-serif;
   color: white;
@@ -29,7 +29,7 @@ const RestName = styled.div`
     font-weight: normal;
     src: local("Banny Bold Round"), url("../Banny-BoldRound.woff");
   }
-  margin-left: 20vw;
+  
   font-family: "Banny Bold Round";
   font-size: 96px;
   color: white;
@@ -105,18 +105,26 @@ const SocTwit = styled.a`
   background-size: cover;
   z-index: 1000;
 `;
+const NameWrapper=styled.div`
+margin-top:0px;
+display:flex;
+flex-direction:column;
+width:100%;
+justify-content:center;
+align-items:center;
+`
 export const MainPage = () => {
   return (
     <Fragment>
         
       <div>
         <MainPageStyled>
-          <div>
+          <NameWrapper>
             <div>
               <Title>RESTAURANT</Title>
             </div>
             <RestName>HUNGRY PEOPLE</RestName>
-          </div>
+          </NameWrapper>
           <BtnContainer>
             <BtnBook>BOOK TABLE</BtnBook>
             <BtnExplore>EXPLORE</BtnExplore>

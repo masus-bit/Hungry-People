@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import {Specialities } from '../specialities/spec.jsx'
+import {connect} from 'react-redux'
+import { MenuSingleItem } from '../menu-item/menu-item.jsx'
+import { splitData } from '../../utils/utils.js'
 const MenuWrapper=styled.div`
 background: url('../img/menu-bg.jpeg') no-repeat center;
   background-size: cover;
@@ -35,6 +38,7 @@ align-items: center;
     src: local("Banny Bold Round"), url("../Banny-BoldRound.woff");
   }
 `
+
 const MealType=styled.ul`
 display: flex;
 justify-content: space-around;
@@ -49,23 +53,13 @@ width: 100%;
 justify-content: center;
 flex-wrap: wrap;
 `
-const MenuItem=styled.div`
-font-family: "Banny Bold Round";
-display: flex;
-width: 300px;
-flex-wrap: wrap;
-color: white;
-`
+
 
 const MenuColumn=styled.div`
 margin-left: 50px;
 margin-right: 50px;
 `
-const ItemDescr=styled.p`
-font-size: small;
-color:lightsteelblue !important;
-margin-top: -20px;
-`
+
 const MenuLink=styled.a`
 font-family: "Open Sans", sans-serif;
 color: #ffd600;
@@ -74,17 +68,29 @@ cursor:pointer;
 `
 
 const Menu= (props)=>{
+  const {menu} = props
+  const normalizedMenu=splitData(menu.pizza)
+  const [type,setType]=useState(null)
+
     return(
         <MenuWrapper>
-        <main class="menu-page">
+        <main className="menu-page">
           
           <FullMenu>
             <MenuText>
-              <h1 class="menu-title">DELICIOUS MENU</h1>
-              <h3 class="menu-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at velit maximus, molestie est a, tempor magna.</h3>
+              <h1 className="menu-title">DELICIOUS MENU</h1>
+              <h3 className="menu-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at velit maximus, molestie est a, tempor magna.</h3>
             </MenuText>
             <MealType>
-              <MealItem>
+              {menu.map((it,i)=>{
+                return <MealItem >
+                  <MenuLink onClick={(evt)=>{
+                  evt.preventDefault()
+                  setType(evt.target.textContent)
+                  }}>{menu.keys()[i]}</MenuLink>
+                </MealItem>
+              })}
+              {/* <MealItem>
                 <MenuLink>SOUP</MenuLink>
               </MealItem>
               <MealItem >
@@ -104,120 +110,18 @@ const Menu= (props)=>{
               </MealItem>
               <MealItem>
                 <MenuLink>BEER</MenuLink>
-              </MealItem>
+              </MealItem> */}
             </MealType>
             <ColumnWrapper>
-              <MenuColumn>
-                <MenuItem>
-                  <p class="menu-item--title">PIZZA MARGARITA . . . .</p>
-                  <p class="menu-item--price">55.9 USD</p>
-                  <ItemDescr>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </ItemDescr>
-                </MenuItem>
-                <MenuItem>
-                  <p class="menu-item--title">PIZZA MARGARITA . . . .</p>
-                  <p class="menu-item--price">55.9 USD</p>
-                  <ItemDescr>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </ItemDescr>
-                </MenuItem>
-                <MenuItem>
-                  <p class="menu-item--title">PIZZA MARGARITA . . . .</p>
-                  <p class="menu-item--price">55.9 USD</p>
-                  <ItemDescr>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </ItemDescr>
-                </MenuItem>
-                <MenuItem>
-                  <p class="menu-item--title">PIZZA MARGARITA . . . .</p>
-                  <p class="menu-item--price">55.9 USD</p>
-                  <ItemDescr>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </ItemDescr>
-                </MenuItem>
-                <MenuItem>
-                  <p class="menu-item--title">PIZZA MARGARITA . . . .</p>
-                  <p class="menu-item--price">55.9 USD</p>
-                  <ItemDescr>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </ItemDescr>
-                </MenuItem>
-              </MenuColumn>
-              <MenuColumn>
-                <MenuItem>
-                  <p class="menu-item--title">PIZZA MARGARITA . . . .</p>
-                  <p class="menu-item--price">55.9 USD</p>
-                  <ItemDescr>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </ItemDescr>
-                </MenuItem>
-                <MenuItem>
-                  <p class="menu-item--title">PIZZA MARGARITA . . . .</p>
-                  <p class="menu-item--price">55.9 USD</p>
-                  <ItemDescr>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </ItemDescr>
-                </MenuItem>
-                <MenuItem>
-                  <p class="menu-item--title">PIZZA MARGARITA . . . .</p>
-                  <p class="menu-item--price">55.9 USD</p>
-                  <ItemDescr>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </ItemDescr>
-                </MenuItem>
-                <MenuItem>
-                  <p class="menu-item--title">PIZZA MARGARITA . . . .</p>
-                  <p class="menu-item--price"> 55.9 USD</p>
-                  <ItemDescr>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </ItemDescr>
-                </MenuItem>
-                <MenuItem>
-                  <p class="menu-item--title">PIZZA MARGARITA . . . .</p>
-                  <p class="menu-item--price">55.9 USD</p>
-                  <ItemDescr>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </ItemDescr>
-                </MenuItem>
-              </MenuColumn>
-              <MenuColumn>
-                <MenuItem>
-                  <p class="menu-item--title">PIZZA MARGARITA . . . .</p>
-                  <p class="menu-item--price">55.9 USD</p>
-                  <ItemDescr>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </ItemDescr>
-                </MenuItem>
-                <MenuItem>
-                  <p class="menu-item--title">PIZZA MARGARITA . . . .</p>
-                  <p class="menu-item--price">55.9 USD</p>
-                  <ItemDescr>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </ItemDescr>
-                </MenuItem>
-                <MenuItem>
-                  <p class="menu-item--title">PIZZA MARGARITA . . . .</p>
-                  <p class="menu-item--price">55.9 USD</p>
-                  <ItemDescr>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </ItemDescr>
-                </MenuItem>
-                <MenuItem>
-                  <p class="menu-item--title">PIZZA MARGARITA . . . .</p>
-                  <p class="menu-item--price">55.9 USD</p>
-                  <ItemDescr>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </ItemDescr>
-                </MenuItem>
-                <MenuItem>
-                  <p class="menu-item--title">PIZZA MARGARITA . . . .</p>
-                  <p class="menu-item--price">55.9 USD</p>
-                  <ItemDescr>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </ItemDescr>
-                </MenuItem>
-              </MenuColumn>
+             
+              {normalizedMenu.map((it,i)=>{
+                return <MenuColumn>
+                  {normalizedMenu[i].map((it)=>{
+
+                  return <MenuSingleItem key={it.id} item={it}/>
+                  })}
+                </MenuColumn>
+              })}
               <Specialities/>
             </ColumnWrapper>
             
@@ -227,4 +131,11 @@ const Menu= (props)=>{
       </MenuWrapper>
     )
 }
-export default Menu
+const mapStateToProps=(state)=>{
+  return(
+    Object.assign({}, state, {
+      menu:state.menu
+    })
+  )
+}
+export default connect(mapStateToProps)(Menu)
