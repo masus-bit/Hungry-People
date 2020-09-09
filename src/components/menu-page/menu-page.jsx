@@ -1,9 +1,14 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
+import styled, {keyframes} from 'styled-components'
 import {Specialities } from '../specialities/spec.jsx'
 import {connect} from 'react-redux'
 import { MenuSingleItem } from '../menu-item/menu-item.jsx'
 import { splitData } from '../../utils/utils.js'
+import {fadeInLeft} from 'react-animations'
+
+
+
+
 const MenuWrapper=styled.div`
 background: url('../img/menu-bg.jpeg') no-repeat center;
   background-size: cover;
@@ -56,6 +61,7 @@ flex-wrap: wrap;
 
 
 const MenuColumn=styled.div`
+
 margin-left: 50px;
 margin-right: 50px;
 `
@@ -67,10 +73,11 @@ text-decoration: none;
 cursor:pointer;
 `
 
+
 const Menu= (props)=>{
   const {menu} = props
-  const normalizedMenu=splitData(menu.pizza)
-  const [type,setType]=useState(null)
+  
+  const [type,setType]=useState("PIZZA")
 
     return(
         <MenuWrapper>
@@ -82,41 +89,23 @@ const Menu= (props)=>{
               <h3 className="menu-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at velit maximus, molestie est a, tempor magna.</h3>
             </MenuText>
             <MealType>
-              {menu.map((it,i)=>{
+              {Object.keys(menu).map((it,i)=>{
                 return <MealItem >
                   <MenuLink onClick={(evt)=>{
                   evt.preventDefault()
                   setType(evt.target.textContent)
-                  }}>{menu.keys()[i]}</MenuLink>
+                  
+                  }}>{Object.keys(menu)[i]}</MenuLink>
                 </MealItem>
               })}
-              {/* <MealItem>
-                <MenuLink>SOUP</MenuLink>
-              </MealItem>
-              <MealItem >
-                <MenuLink>PIZZA</MenuLink>
-              </MealItem>
-              <MealItem>
-                <MenuLink>PASTA</MenuLink>
-              </MealItem>
-              <MealItem>
-                <MenuLink>DESERT</MenuLink>
-              </MealItem>
-              <MealItem>
-                <MenuLink>WINE</MenuLink>
-              </MealItem>
-              <MealItem>
-                <MenuLink>DRINKS</MenuLink>
-              </MealItem>
-              <MealItem>
-                <MenuLink>BEER</MenuLink>
-              </MealItem> */}
+          
             </MealType>
             <ColumnWrapper>
              
-              {normalizedMenu.map((it,i)=>{
+              {
+              splitData(menu[type]).map((it,i)=>{
                 return <MenuColumn>
-                  {normalizedMenu[i].map((it)=>{
+                  {splitData(menu[type])[i].map((it)=>{
 
                   return <MenuSingleItem key={it.id} item={it}/>
                   })}

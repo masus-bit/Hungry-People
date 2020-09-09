@@ -1,6 +1,6 @@
 {
   "menu": {
-    "soup": [
+    "SOUP": [
       {
         "id": 1,
         "name": "Tomato Soup",
@@ -92,7 +92,7 @@
         "price": 20
       }
     ],
-    "pizza": [
+    "PIZZA": [
       {
         "id": 1,
         "name": "Margarita",
@@ -184,7 +184,7 @@
         "price": 20
       }
     ],
-    "pasta": [
+    "PASTA": [
       {
         "id": 1,
         "name": "Mokoroni",
@@ -276,7 +276,7 @@
         "price": 20
       }
     ],
-    "deserte": [
+    "DESERTE": [
       {
         "id": 1,
         "name": "Tiramisu",
@@ -368,7 +368,7 @@
         "price": 20
       }
     ],
-    "wine": [
+    "WINE": [
       {
         "id": 1,
         "name": "Isabella",
@@ -460,7 +460,7 @@
         "price": 20
       }
     ],
-    "drinks": [
+    "DRINKS": [
       {
         "id": 1,
         "name": "Whiskey Jack Daniels",
@@ -552,7 +552,7 @@
         "price": 20
       }
     ],
-    "beer": [
+    "BEER": [
       {
         "id": 1,
         "name": "Bud",
