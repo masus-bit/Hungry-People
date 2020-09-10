@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import styled, { injectGlobal } from "styled-components";
 import {PageHeader} from '../header/header.jsx'
+import {Link} from 'react-router-dom'
 const MainPageStyled = styled.main`
   z-index: -10;
   overflow: hidden;
@@ -21,6 +22,7 @@ width:100%;
   margin-top: 40vh;
   font-family: "Open Sans", sans-serif;
   color: white;
+  transition:ease-in;
 `;
 const RestName = styled.div`
   @font-face {
@@ -33,6 +35,38 @@ const RestName = styled.div`
   font-family: "Banny Bold Round";
   font-size: 96px;
   color: white;
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  }
+  @-webkit-keyframes fadeInDown {
+  0% {
+  opacity: 0;
+  -webkit-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
+  }
+  100% {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+  }
+  }
+  @keyframes fadeInDown {
+  0% {
+  opacity: 0;
+  -webkit-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
+  }
+  100% {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+  }
+
 `;
 const BtnContainer = styled.div`
   margin-left: -20px;
@@ -40,7 +74,8 @@ const BtnContainer = styled.div`
   justify-content: center;
   padding: 40px;
 `;
-const BtnBook = styled.button`
+const BtnBook = styled(Link)`
+font-family: "Open Sans", sans-serif;
   background-color: #ffd600;
   border: none;
   border-radius: 5px;
@@ -49,13 +84,49 @@ const BtnBook = styled.button`
   height: 60px;
   font-weight: bold;
   margin-right: 30px;
+  text-decoration:none;
+  display:flex;
+  justify-content:center;
+  align-items:center;
   :hover {
     width: 210px;
     height: 70px;
     transition: 0.2s;
   }
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+  animation-delay:1s;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  }
+  @-webkit-keyframes fadeInDown {
+  0% {
+  opacity: 0;
+  -webkit-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
+  }
+  100% {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+  }
+  }
+  @keyframes fadeInDown {
+  0% {
+  opacity: 0;
+  -webkit-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
+  }
+  100% {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+  }
 `;
 const BtnExplore = styled.button`
+font-family: "Open Sans", sans-serif;
   background-color: transparent;
   border: 0.5px white solid;
   border-radius: 5px;
@@ -68,6 +139,37 @@ const BtnExplore = styled.button`
     width: 210px;
     height: 70px;
     transition: 0.2s;
+  }
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+  animation-delay:1.5s;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  }
+  @-webkit-keyframes fadeInDown {
+  0% {
+  opacity: 0;
+  -webkit-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
+  }
+  100% {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+  }
+  }
+  @keyframes fadeInDown {
+  0% {
+  opacity: 0;
+  -webkit-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
+  }
+  100% {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
   }
 `;
 const SocialSection = styled.section`
@@ -121,12 +223,13 @@ export const MainPage = () => {
         <MainPageStyled>
           <NameWrapper>
             <div>
+              
               <Title>RESTAURANT</Title>
             </div>
             <RestName>HUNGRY PEOPLE</RestName>
           </NameWrapper>
           <BtnContainer>
-            <BtnBook>BOOK TABLE</BtnBook>
+            <BtnBook to="/booking">BOOK TABLE</BtnBook>
             <BtnExplore>EXPLORE</BtnExplore>
           </BtnContainer>
           <SocialSection>

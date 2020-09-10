@@ -3,7 +3,7 @@ import styled, {keyframes} from 'styled-components'
 import {fadeInLeft} from 'react-animations'
 
 const MenuItem=styled.div`
-animation: 0.5s ${keyframes`${fadeInLeft}`};
+
 
 font-family: "Banny Bold Round";
 display: flex;

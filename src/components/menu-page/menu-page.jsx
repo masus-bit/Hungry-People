@@ -4,7 +4,8 @@ import {Specialities } from '../specialities/spec.jsx'
 import {connect} from 'react-redux'
 import { MenuSingleItem } from '../menu-item/menu-item.jsx'
 import { splitData } from '../../utils/utils.js'
-import {fadeInLeft} from 'react-animations'
+import {fadeInLeft, fadeOutRight} from 'react-animations'
+import { CSSTransition } from "react-transition-group"
 
 
 
@@ -62,8 +63,34 @@ flex-wrap: wrap;
 
 const MenuColumn=styled.div`
 
+&.fade-enter {
+  opacity: 0;
+  transform:translateX(-200px)
+};
+
+
+&.fade-enter-active {
+  opacity: 1;
+  transform:translateX(0px);
+  transition:0.3s;
+};
+
+
+&.fade-exit {
+  opacity: 1;
+  transform:translateX(0px)
+};
+
+
+&.fade-exit-active {
+  opacity: 0;
+  transform:translateX(200px);
+  transition:0.1s;
+};
+
 margin-left: 50px;
 margin-right: 50px;
+
 `
 
 const MenuLink=styled.a`
@@ -78,7 +105,7 @@ const Menu= (props)=>{
   const {menu} = props
   
   const [type,setType]=useState("PIZZA")
-
+const [active, setActive]=useState(false)
     return(
         <MenuWrapper>
         <main className="menu-page">
@@ -91,9 +118,12 @@ const Menu= (props)=>{
             <MealType>
               {Object.keys(menu).map((it,i)=>{
                 return <MealItem >
-                  <MenuLink onClick={(evt)=>{
+                  <MenuLink active={active} onClick={(evt)=>{
                   evt.preventDefault()
+                  
+                  setActive(false)
                   setType(evt.target.textContent)
+                  setTimeout(()=>setActive(true),200)
                   
                   }}>{Object.keys(menu)[i]}</MenuLink>
                 </MealItem>
@@ -104,12 +134,18 @@ const Menu= (props)=>{
              
               {
               splitData(menu[type]).map((it,i)=>{
-                return <MenuColumn>
+                return <CSSTransition
+                in={active}
+                classNames="fade"
+                timeout={300}
+                unmountOnExit
+              ><MenuColumn>
                   {splitData(menu[type])[i].map((it)=>{
 
                   return <MenuSingleItem key={it.id} item={it}/>
                   })}
                 </MenuColumn>
+                </CSSTransition>
               })}
               <Specialities/>
             </ColumnWrapper>
