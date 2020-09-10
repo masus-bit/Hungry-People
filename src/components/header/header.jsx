@@ -84,7 +84,7 @@ export const PageHeader=()=>{
           <MenuLink to="/">HOME</MenuLink>
         </MenuItem>
         <MenuItem>
-          <MenuLink>ABOUT</MenuLink>
+          <MenuLink to="/about">ABOUT</MenuLink>
         </MenuItem>
         <MenuItem>
           <MenuLink>TEAM</MenuLink>

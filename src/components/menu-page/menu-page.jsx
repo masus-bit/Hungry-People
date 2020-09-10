@@ -48,10 +48,42 @@ align-items: center;
 const MealType=styled.ul`
 display: flex;
 justify-content: space-around;
+webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+  animation-delay:0.3s;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  }
+  @-webkit-keyframes fadeInDown {
+  0% {
+  opacity: 0;
+  -webkit-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
+  }
+  100% {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+  }
+  }
+  @keyframes fadeInDown {
+  0% {
+  opacity: 0;
+  -webkit-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
+  }
+  100% {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+  }
 `
 const MealItem=styled.li`
 margin: 50px 20px;
 list-style: none;
+
 `
 const ColumnWrapper=styled.div`
 display: flex;
@@ -98,6 +130,10 @@ font-family: "Open Sans", sans-serif;
 color: #ffd600;
 text-decoration: none;
 cursor:pointer;
+:hover{
+  color:green;
+  transition:0.2s;
+}
 `
 
 
@@ -124,7 +160,7 @@ const [active, setActive]=useState(false)
                   setActive(false)
                   setType(evt.target.textContent)
                   setTimeout(()=>setActive(true),200)
-                  
+            
                   }}>{Object.keys(menu)[i]}</MenuLink>
                 </MealItem>
               })}

@@ -2,9 +2,20 @@ import React, { Fragment } from 'react'
 import styled from 'styled-components'
 
 const ElementWrapper=styled.div`
-display:flex;
+margin-top:-10px;
+z-index: -10;
+overflow: hidden;
+margin: -10px 0;
+display: flex;
 flex-direction: row;
-
+position: absolute;
+left: 0;
+width:100vw;
+height: 100vh;
+background: url("../img/ad8dc293645eb043ad328652e84f9f87.jpeg") center
+  no-repeat;
+background-size: cover;
+box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.6);
 `
 const BookLeft=styled.div`
 margin-top: 100px;
@@ -125,11 +136,12 @@ background-color: #ffd600;
 border-radius: 5px;
 height: 60px;
 font-family: "Open Sans", sans-serif;
-color: white;
+color: black;
 font-size: large;
 font-weight: bold;
 :hover{
     width: 600;
+    background-color:#ADFF2F;
     transition: 0.3s;
 }
 -webkit-animation-name: fadeInDown;
@@ -165,9 +177,16 @@ font-weight: bold;
   }
 `
 const BookTitle=styled.h1`
-font-family: "Banny Bold Round";
+@font-face {
+    font-family: "Banny Bold Round";
+    font-style: normal;
+    font-weight: normal;
+    src: local("Banny Bold Round"), url("../Banny-BoldRound.woff");
+  };
+  font-family: "Banny Bold Round";
 font-size: 3em;
 margin-left: -10px;
+color:white;
 `
 const BookRight=styled.div`
 display: flex;
@@ -175,7 +194,7 @@ display: flex;
 const BookImg=styled.img`
 width: 375px;
 height: 375px;
-box-shadow: 0 0 50px 20px lightgrey;
+box-shadow: 0 0 50px 20px black;
 margin-top: 180px;
 margin-bottom: 50px;
 margin-left: 50px;

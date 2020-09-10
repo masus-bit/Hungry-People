@@ -11,7 +11,7 @@ const MainPageStyled = styled.main`
   position: absolute;
   left: 0;
   width:100%;
-  height: 99vh;
+  height: 100vh;
   background: url("../img/ad8dc293645eb043ad328652e84f9f87.jpeg") center
     no-repeat;
   background-size: cover;
