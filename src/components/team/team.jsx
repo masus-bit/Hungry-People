@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
 
-const AboutWrapper=styled.main`
+const TeamPage=styled.main`
 z-index: -10;
 overflow: hidden;
 margin: -10px 0;
@@ -9,46 +9,50 @@ display: flex;
 flex-direction: column;
 position: absolute;
 left: 0;
-width:100%;
+width: 100%;
 height: 100vh;
-background: url("../img/ad8dc293645eb043ad328652e84f9f87.jpeg") center
-  no-repeat;
+background: url("../img/team-bg.jpeg") center no-repeat;
 background-size: cover;
 box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.6);
 `
-const AboutTextContainer=styled.div`
+const TeamWrapper=styled.div`
+margin-top: 30px;
 display: flex;
-flex-direction: column;
-margin-top: 200px;
-align-items: center;
-width: 600px;
-`
-const AboutParag=styled.p`
-font-family: "Open Sans", sans-serif;
-margin-left: 20px;
-text-align: center;
-color:white;
-`
-const StyledAboutParag=styled(AboutParag)`
-font-weight: bold;
-font-size: 1.3em;
-color:white;
-`
-const AboutTitle=styled.h1`
-@font-face {
-    font-family: "Banny Bold Round";
-    font-style: normal;
-    font-weight: normal;
-    src: local("Banny Bold Round"), url("../Banny-BoldRound.woff");
-  };
-  font-family: "Banny Bold Round";
-color:white;
-`
-const AboutWrapperTwo=styled.div`
-display: flex;
+flex-direction: row;
 justify-content: space-around;
 `
-const AboutImage=styled.img`
+const TeamTitle=styled.p`
+margin-left:-10px;
+margin-top: 160px;
+position: absolute;
+display: flex;
+color: white;
+font-family: "Open Sans", sans-serif;
+font-size: 0.8em;
+letter-spacing: 7px;
+width: 100%;
+justify-content: center;
+`
+const TeamTitleTwo=styled.h1`
+color: white;
+font-family: "Banny Bold Round";
+font-size: 3em;
+text-align: center;
+`
+const TeamTextB=styled.p`
+color: white;
+font-family: "Open Sans", sans-serif;
+font-weight: bold;
+font-size: 1.3em;
+text-align: center;
+`
+const TeamTextS=styled.p`
+color: white;
+font-family: "Open Sans", sans-serif;
+text-align: center;
+`
+const TeamImg=styled.img`
+z-index: 0;
 width: 375px;
 height: 375px;
 box-shadow: 0 0 50px 20px black;
@@ -56,34 +60,33 @@ margin-top: 200px;
 margin-bottom: 50px;
 margin-left: 150px;
 `
-const AboutSquare=styled.div`
-margin-top: 160px;
-margin-left: -230px;
+const TeamSquare=styled.div`
+z-index: 100;
+margin-left: -600px;
+margin-top:160px
+`
+const TeamLeft=styled.div`
+margin-left: -100px;
+display: flex;
+width: 400px;
+`
+const TeamRight=styled.div`
+display: flex;
+flex-direction: column;
+width: 500px;
+justify-content: center;
+align-items: center;
 `
 
-export const About=()=>{
-
+export const Team = ()=>{
 return(
     <Fragment>
-         <AboutWrapper>
-        <AboutWrapperTwo>
-          <AboutTextContainer>
-            <AboutTitle>ABOUT US</AboutTitle>
-            <StyledAboutParag>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at
-              velit maximus, molestie est a, tempor magna.
-            </StyledAboutParag>
-            <AboutParag>
-              Integer ullamcorper neque eu purus euismod, ac faucibus mauris
-              posuere. Morbi non ultrices ligula. Sed dictum, enim sed
-              ullamcorper feugiat, dui odio vehicula eros, a sollicitudin lorem
-              quam nec sem. Mauris tincidunt feugiat diam convallis pharetra.
-              Nulla facilisis semper laoreet.
-            </AboutParag>
-          </AboutTextContainer>
-         <AboutImage alt="" src="./img/about-1.jpeg"/>
-          <AboutSquare>
-            <svg
+        <TeamPage>
+        <TeamWrapper>
+          <TeamTitle>OUR TEAM</TeamTitle>
+          <TeamLeft>
+            <TeamImg src="./img/team-chef.jpeg" alt=""></TeamImg>
+            <TeamSquare><svg
               width="429"
               height="450"
               viewBox="0 0 429 450"
@@ -140,10 +143,20 @@ return(
                   />
                 </filter>
               </defs>
-            </svg>
-          </AboutSquare>
-        </AboutWrapperTwo>
-      </AboutWrapper>
+            </svg></TeamSquare>
+          </TeamLeft>
+          <TeamRight>
+            <TeamTitleTwo>MASTER CHEF</TeamTitleTwo>
+            <TeamTextB> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at
+              velit maximus, molestie est a, tempor magna.</TeamTextB>
+            <TeamTextS>Integer ullamcorper neque eu purus euismod, ac faucibus mauris
+              posuere. Morbi non ultrices ligula. Sed dictum, enim sed
+              ullamcorper feugiat, dui odio vehicula eros, a sollicitudin lorem
+              quam nec sem. Mauris tincidunt feugiat diam convallis pharetra.
+              Nulla facilisis semper laoreet.</TeamTextS>
+          </TeamRight>
+        </TeamWrapper>
+      </TeamPage>
     </Fragment>
 )
 

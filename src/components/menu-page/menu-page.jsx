@@ -4,7 +4,6 @@ import {Specialities } from '../specialities/spec.jsx'
 import {connect} from 'react-redux'
 import { MenuSingleItem } from '../menu-item/menu-item.jsx'
 import { splitData } from '../../utils/utils.js'
-import {fadeInLeft, fadeOutRight} from 'react-animations'
 import { CSSTransition } from "react-transition-group"
 
 

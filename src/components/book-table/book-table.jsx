@@ -1,5 +1,7 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 import styled from 'styled-components'
+import { Booked } from '../booked/booked.jsx'
+import { CSSTransition } from "react-transition-group"
 
 const ElementWrapper=styled.div`
 margin-top:-10px;
@@ -101,7 +103,7 @@ padding-left: 20px;
   animation-duration: 1s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
-  }
+  
   @-webkit-keyframes fadeInDown {
   0% {
   opacity: 0;
@@ -204,25 +206,41 @@ position: absolute;
 margin-left: 200px;
 margin-top: 145px;
 `
+const StyledBooked=styled(Booked)`
+
+`
 
 
 export const Booking=()=>{
-
+const [booked, setBook]= useState(false);
+const [data, setData]= useState({});
+const [active, setActive]=useState(false)
     return(
         <Fragment>
              <div className="book__wrapper">
       <main className="book">
         <ElementWrapper>
           <BookLeft>
-            <BookingForm>
+            <BookingForm onSubmit={(evt)=>{
+              evt.preventDefault();
+              const name=evt.target.querySelector(`#name`).value;
+              const people=evt.target.querySelector(`#people`).value;
+              const date=evt.target.querySelector(`#date`).value;
+              const time=evt.target.querySelector(`#time`).value;
+                setData({name,people,date,time});
+                setBook(true)
+                setActive(true)
+                setTimeout(()=>setActive(false), 3000)
+               
+              }}>
               <BookTitle>BOOK A TABLE</BookTitle>
               <BookingFieldset>
-                <InputField type="text" name="name" placeholder="NAME"/>
-                <InputField type="email" name="email" placeholder="EMAIL"/>
-                <InputField type="phone" name="phone" id="" placeholder="PHONE NUMBER"/>
+                <InputField type="text" id="name" name="name" placeholder="NAME"/>
+                <InputField type="email" id="email" name="email" placeholder="EMAIL"/>
+                <InputField type="phone" id="phone" name="phone" id="" placeholder="PHONE NUMBER"/>
                 <SelectField
                   name="people"
-                  id=""
+                  id="people"
                  
                   aria-placeholder="People"
                 >
@@ -233,22 +251,28 @@ export const Booking=()=>{
                   <option className="option"  value="3">3</option>
                   <option  className="option"  value="4">4</option>
                 </SelectField>
-                <InputField type="text" name="date" placeholder="DATE" />
-                <SelectField name="time" id="">
+                <InputField type="text" id="date" name="date" placeholder="DATE" />
+                <SelectField name="time" id="time">
                   <option value="" selected disabled>TIME</option>
-                  <option value="">12:00</option>
-                  <option value="">13:00</option>
-                  <option value="">14:00</option>
-                  <option value="">15:00</option>
-                  <option value="">16:00</option>
-                  <option value="">17:00</option>
-                  <option value="">18:00</option>
+                  <option value="12:00">12:00</option>
+                  <option value="13:00">13:00</option>
+                  <option value="14:00">14:00</option>
+                  <option value="15:00">15:00</option>
+                  <option value="16:00">16:00</option>
+                  <option value="17:00">17:00</option>
+                  <option value="18:00">18:00</option>
                 </SelectField>
 
                 
               </BookingFieldset>
-              <BookButton type="submit">BOOK NOW</BookButton>
+              <BookButton type="submit" >BOOK NOW</BookButton>
             </BookingForm>
+            {booked===false?null:<CSSTransition
+                in={active}
+                classNames="fade"
+                timeout={300}
+                unmountOnExit
+              ><Booked props={data}/></CSSTransition>}
           </BookLeft>
           <BookRight>
             <BookImg src="./img/book.jpeg" alt="" />
