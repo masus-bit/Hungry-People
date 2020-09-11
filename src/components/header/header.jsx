@@ -120,7 +120,7 @@ export const PageHeader=()=>{
           <MenuLink>EVENTS</MenuLink>
         </MenuItem>
         <MenuItem>
-          <MenuLink>CONTACT</MenuLink>
+          <MenuLink to="/contact">CONTACT</MenuLink>
         </MenuItem>
       </RightMenu>
     </div>

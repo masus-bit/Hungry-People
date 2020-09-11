@@ -22,7 +22,7 @@ flex-direction: row;
 justify-content: space-around;
 `
 const TeamTitle=styled.p`
-margin-left:-10px;
+margin-left:20px;
 margin-top: 160px;
 position: absolute;
 display: flex;
@@ -34,6 +34,12 @@ width: 100%;
 justify-content: center;
 `
 const TeamTitleTwo=styled.h1`
+@font-face {
+  font-family: "Banny Bold Round";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Banny Bold Round"), url("../Banny-BoldRound.woff");
+};
 color: white;
 font-family: "Banny Bold Round";
 font-size: 3em;
@@ -76,6 +82,7 @@ flex-direction: column;
 width: 500px;
 justify-content: center;
 align-items: center;
+margin-top:100px;
 `
 
 export const Team = ()=>{
