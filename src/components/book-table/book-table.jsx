@@ -11,6 +11,8 @@ margin: -10px 0;
 display: flex;
 flex-direction: row;
 position: absolute;
+justify-content:center;
+padding-top:150px;
 left: 0;
 width:100vw;
 height: 100vh;
